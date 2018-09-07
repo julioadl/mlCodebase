@@ -1,0 +1,11 @@
+#Data
+data
+
+#Other
+.DS_Store
+.DS_Store?
+
+#Python
+__pycache__
+.pytest_cache
+.ipynb_checkpoints
