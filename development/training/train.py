@@ -1,93 +1,42 @@
-import json
-import os
-import importlib
-import argparse
+from time import time
+from typing impot Callable, Optional, Union, Tuple
 
-''''
-wandb
-''''
-import wandb
+import numpy as np
+#from tensorflow.keras.callbacks import EarlyStopping, TensorBoard
+#from tensorflow.keras.optimizers import RMSprop
+#Try to use wandb
+#import wandb
+from wandb.keras import WandbCallback
 
-DEFAULT_TRAINING_ARGS = {
-    'batch_size': 64,
-    'epochs': 8
-}
+from development.datasets.base import Dataset
+from development.models.base import Model
+#from training.gpu_util_sampler import GPUUtilizationSample
 
-def run_experiment(experiment_config: Dict, save_weights: bool, use_wandb = False):
-    """
-    experiment_config is of the form
-    {
-        "dataset": "EmnistLinesDataset",
-        "dataset_args": {
-            "max_overlap": 0.4
-        },
-        "model": "LineModel",
-        "algorithm": "line_cnn_sliding_window",
-        "algorithm_args": {
-            "window_width": 14,
-            "window_stride": 7
-        },
-        "train_args": {
-            "batch_size": 128,
-            "epochs": 10
-        }
-    }
-    save_weights: if True, will save the final model weights to a canonical location (see Model in models/base.py)
-    gpu_ind: integer specifying which gpu to use
-    """
+EARLY_STOPPING = True
+GPU_UTIL_SAMPLE = True
 
-    print(f'Running experiment with config {experiment_config}')
+def train_model(model: Model, dataset: Dataset, epochs: Optional[int] = None, gpu_ind: Optional[int] = None, use_wandb=False) -> Model:
+    callbacks = []
 
-    datasets_module = importlib.import_module('development.datasets')
-    dataset_class = getattr(datasets_module, experiment_config['dataset'])
-    dataset_args = experiment_config.get('dataset_args', {})
-    dataset = dataset_class(**dataset_args)
-    dataset.load_or_generate_data()
-    print(dataset)
+#   Early stopping with tensorflow
+#    if EARLY_STOPPING:
+#       early_stopping = EarlyStopping(monitor='val_loss', mon_delta=0.01, patience = 3, verbose=1, mode='auto')
+#       ballbacks.append(early_stopping)
 
-    models_module = importlib.import_module('development.models')
-    model_class = getattr(models_module, experiment_config['model'])
+    if GPU_UTIL_SAMPLE and gpu_ind is not None:
+        gpu_utilization = GPUUtilizationSampler(gpu_ind)
+        callbacks.append(gpu_utilization)
 
-    algorithm_module = importlib.import_module('development.algorithms')
-    algorithm_fn = getattr(algorithm_module, experiment_config['algorithm'])
-    algorithm_args = experiment_config.get('algorithm_args', {})
-    model = model_class(dataset_cls=dataset_class, algorithm_fn=algorithm_fn, dataset_args=dataset_args, algorithm_args=algorithm_args)
-    print(model)
+    if use wandb:
+        wandb = WandbCallback()
+        callbacks.append(wandb)
 
-    experiment_config['train_args'] = {**DEFAULT_TRAINING_ARGS, **experiment_config('train_args', {})}
-    experiment_config['experiment_group'] = experiment_config.get('experiment_group', None)
-    ''''
-    Config GPU
-    experiment_config['gpu_ind'] = gpu_ind
-    ''''
+    t = time()
+    history = model.fit(dataset, batch_size, epochs, callbacks)
+    print('Training took {:2f} s'.format(time() - t))
 
+    if GPU_UTIL_SAMPLER and gpu_ind is not None:
+        gpu_utilizations = gpu_utilization.samples
+        print(f'GPU utilization: {round(np.mean(gpu_utilizations), 2)} +- {round(np.std(gpu_utilizations), 2)}')
 
-if __name__ == 'main':
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--gpu",
-        type=int,
-        default=0,
-        help="Provide index of GPU to use"
-    )
-    parser.add_argument(
-        "--save",
-        default=False,
-        dest='save',
-        action='store_true',
-        help='If true, final weights are saved to verion-controlled location'
-    )
-    parser.add_argument(
-        "experiment_config",
-        type=str,
-        help="JSON of config for experiment"
-    )
-    args = parser.parse_args()
-
-''''
-GPU manager - see line 115 in https://github.com/julioadl/fsdl-text-recognizer-project/blob/master/lab5_sln/training/run_experiment.py
-''''
-
-    experiment_config = json.loads(args.experiment_config)
-#    os.environ["CUDA_VISIBLE_DEVICES"] = f"{args.gpu}"
-    run_experiment(experiment_config, args.save, args.gpu)
+    return model
