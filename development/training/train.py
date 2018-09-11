@@ -8,8 +8,8 @@ import numpy as np
 #import wandb
 from wandb.keras import WandbCallback
 
-from development.datasets.base import Dataset
-from development.models.base import Model
+from datasets.base import Dataset
+from models.base import Model
 #from training.gpu_util_sampler import GPUUtilizationSample
 
 EARLY_STOPPING = True

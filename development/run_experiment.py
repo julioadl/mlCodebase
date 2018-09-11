@@ -19,12 +19,12 @@ def run_experiment(experiment_config: Dict, save_weights: bool, use_wandb = Fals
     """
     experiment_config is of the form
     {
-        "dataset": "EmnistLinesDataset",
+        "dataset": "sklearnDigits",
         "dataset_args": {
             "max_overlap": 0.4
         },
-        "model": "LineModel",
-        "algorithm": "line_cnn_sliding_window",
+        "model": "SVMModel",
+        "algorithm": "SVM",
         "algorithm_args": {
             "window_width": 14,
             "window_stride": 7
@@ -40,20 +40,20 @@ def run_experiment(experiment_config: Dict, save_weights: bool, use_wandb = Fals
 
     print(f'Running experiment with config {experiment_config}')
 
-    datasets_module = importlib.import_module('development.datasets')
-    dataset_class = getattr(datasets_module, experiment_config['dataset'])
+    datasets_module = importlib.import_module('datasets')
+    dataset_cls = getattr(datasets_module, experiment_config['dataset'])
     dataset_args = experiment_config.get('dataset_args', {})
-    dataset = dataset_class(**dataset_args)
+    dataset = dataset_cls(**dataset_args)
     dataset.load_or_generate_data()
     print(dataset)
 
-    models_module = importlib.import_module('development.models')
-    model_class = getattr(models_module, experiment_config['model'])
+    models_module = importlib.import_module('models')
+    model_cls = getattr(models_module, experiment_config['model'])
 
-    algorithm_module = importlib.import_module('development.algorithms')
+    algorithm_module = importlib.import_module('algorithms')
     algorithm_fn = getattr(algorithm_module, experiment_config['algorithm'])
     algorithm_args = experiment_config.get('algorithm_args', {})
-    model = model_class(dataset_cls=dataset_class, algorithm_fn=algorithm_fn, dataset_args=dataset_args, algorithm_args=algorithm_args)
+    model = model_cls(dataset_cls=dataset_clss, algorithm_fn=algorithm_fn, dataset_args=dataset_args, algorithm_args=algorithm_args)
     print(model)
 
     experiment_config['train_args'] = {**DEFAULT_TRAINING_ARGS, **experiment_config('train_args', {})}

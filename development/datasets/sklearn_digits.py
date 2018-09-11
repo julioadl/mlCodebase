@@ -3,7 +3,7 @@ import h5py
 import os
 from sklearn.model_selection import train_test_split
 
-from base import Dataset
+from .base import Dataset
 
 PROCESSED_DATA_DIRNAME = Dataset.data_dirname() / 'processed' / 'digits'
 PROCESSED_DATA_FILENAME = PROCESSED_DATA_DIRNAME / 'data.h5'

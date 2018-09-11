@@ -2,7 +2,7 @@ from typing import Callable, Dict
 import pathlib
 import numpy as np
 
-from datasets.sequence import DataSequence
+from datasets.sequence import DatasetSequence
 
 DIRNAME = pathlib.Path(__file__).parents[1].resolve() / 'weights'
 
@@ -27,27 +27,36 @@ class Model:
         DIRNAME.mkdir(parents=True, exist_ok=True)
         return str(DIRNAME / f'{self.name}_weights.h5')
 
-#''''
-#Functions to be filled out see: https://github.com/gradescope/fsdl-text-recognizer-project/blob/master/lab6_sln/text_recognizer/models/base.py
-#''''
+'''
+Functions to be filled out see: https://github.com/gradescope/fsdl-text-recognizer-project/blob/master/lab6_sln/text_recognizer/models/base.py
+'''
 
     def fit(self, dataset, batch_size=None, epochs=None, callbacks=[]):
         #Define fit sequence
+        '''
+        Fit generator for keras. See line 44 https://github.com/gradescope/fsdl-text-recognizer-project/blob/master/lab6_sln/text_recognizer/models/base.py
+        Arguments for fit generator
+                    train_sequence,
+                    epochs = epochs,
+                    callbacks = callbacks,
+                    validation_data = test_sequence,
+                    use_multiprocessing = False,
+                    workers = 1,
+                    shuffle = True
+        '''
+        #Updated for sklearn
         train_sequence = DatasetSequence(dataset.x_train, dataset.y_train, batch_size)
         test_sequence = DatasetSequence(dataset.x_train, dataset.y_train, batch_size)
-        self.algorithm(
-            train_sequence,
-            epochs = epochs,
-            callbacks = callbacks,
-            validation_data = test_sequence,
-            use_multiprocessing = False,
-            workers = 1,
-            shuffle = True
+        self.algorithm.fit(
+            train_sequence.x,
+            train_sequence.y
         )
 
     def evaluate(self, x, y):
         #Define evaluate sequence
-        return 'Done'
+        sequence = DataSequence(x, y, batch_size=16)
+        preds = self.algorithm.predict_generator(sequence)
+        return np.mean(np.argmmax(preds, -1) == np.argmax(y, -1))
 
     def loss(self):
         #Return loss
