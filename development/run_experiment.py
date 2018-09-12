@@ -53,7 +53,7 @@ def run_experiment(experiment_config: Dict, save_weights: bool, use_wandb = Fals
     algorithm_module = importlib.import_module('algorithms')
     algorithm_fn = getattr(algorithm_module, experiment_config['algorithm'])
     algorithm_args = experiment_config.get('algorithm_args', {})
-    model = model_cls(dataset_cls=dataset_clss, algorithm_fn=algorithm_fn, dataset_args=dataset_args, algorithm_args=algorithm_args)
+    model = model_cls(dataset_cls=dataset_cls, algorithm_fn=algorithm_fn, dataset_args=dataset_args, algorithm_args=algorithm_args)
     print(model)
 
     experiment_config['train_args'] = {**DEFAULT_TRAINING_ARGS, **experiment_config('train_args', {})}

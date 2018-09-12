@@ -16,7 +16,7 @@ class Model:
 
         if algorithm_args is None:
             algorithm_args = {}
-        self.algorithm = algorithm_fn(self.data.input_shape, self.data.output_shape, **algorithm_args)
+        self.algorithm = algorithm_fn(**algorithm_args)
         #self.algorithm.summary()
 
         self.batch_augment_fn = None
@@ -27,9 +27,9 @@ class Model:
         DIRNAME.mkdir(parents=True, exist_ok=True)
         return str(DIRNAME / f'{self.name}_weights.h5')
 
-'''
-Functions to be filled out see: https://github.com/gradescope/fsdl-text-recognizer-project/blob/master/lab6_sln/text_recognizer/models/base.py
-'''
+    '''
+    Functions to be filled out see: https://github.com/gradescope/fsdl-text-recognizer-project/blob/master/lab6_sln/text_recognizer/models/base.py
+    '''
 
     def fit(self, dataset, batch_size=None, epochs=None, callbacks=[]):
         #Define fit sequence
