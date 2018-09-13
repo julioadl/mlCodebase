@@ -46,7 +46,7 @@ class Model:
         '''
         #Updated for sklearn
         train_sequence = DatasetSequence(dataset.x_train, dataset.y_train, batch_size)
-        test_sequence = DatasetSequence(dataset.x_train, dataset.y_train, batch_size)
+
         self.algorithm.fit(
             train_sequence.x,
             train_sequence.y
@@ -54,8 +54,11 @@ class Model:
 
     def evaluate(self, x, y):
         #Define evaluate sequence
-        sequence = DataSequence(x, y, batch_size=16)
-        preds = self.algorithm.predict_generator(sequence)
+        '''
+        For predict for Keras see line 56 in https://github.com/gradescope/fsdl-text-recognizer-project/blob/master/lab6_sln/text_recognizer/models/base.py
+        '''
+        sequence = DatasetSequence(x, y, batch_size=16)
+        preds = self.algorithm.predict(sequence)
         return np.mean(np.argmmax(preds, -1) == np.argmax(y, -1))
 
     def loss(self):

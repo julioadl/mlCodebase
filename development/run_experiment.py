@@ -77,7 +77,7 @@ def run_experiment(experiment_config: Dict, save_weights: bool, use_wandb = Fals
     )
 
     score = model.evaluate(dataset.x_test, dataset.y_test)
-    print(f'Test evaluation: {score}')
+    print(f'Test evaluation:\n s {score}')
 
     #if use_wandb:
     #   wandb.log({'test_metric': score})
