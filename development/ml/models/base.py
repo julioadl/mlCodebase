@@ -1,10 +1,12 @@
 from typing import Callable, Dict
 import pathlib
 import numpy as np
+from sklearn import metrics
+from sklearn.externals import joblib
 
 from datasets.sequence import DatasetSequence
 
-DIRNAME = pathlib.Path(__file__).parents[1].resolve() / 'weights'
+DIRNAME = pathlib.Path(__file__).parents[0].resolve() / 'weights'
 
 class Model:
     def __init__(self, dataset_cls: type, algorithm_fn: Callable, dataset_args: Dict=None, algorithm_args: Dict=None):
@@ -25,7 +27,7 @@ class Model:
     @property
     def weights_filename(self):
         DIRNAME.mkdir(parents=True, exist_ok=True)
-        return str(DIRNAME / f'{self.name}_weights.h5')
+        return str(DIRNAME / f'{self.name}_weights.pkl')
 
     '''
     Functions to be filled out see: https://github.com/gradescope/fsdl-text-recognizer-project/blob/master/lab6_sln/text_recognizer/models/base.py
@@ -57,9 +59,10 @@ class Model:
         '''
         For predict for Keras see line 56 in https://github.com/gradescope/fsdl-text-recognizer-project/blob/master/lab6_sln/text_recognizer/models/base.py
         '''
-        sequence = DatasetSequence(x, y, batch_size=16)
-        preds = self.algorithm.predict(sequence)
-        return np.mean(np.argmmax(preds, -1) == np.argmax(y, -1))
+        sequence = DatasetSequence(x, y, batch_size=12)
+        preds = self.algorithm.predict(sequence.x)
+        report = metrics.classification_report(sequence.y, preds)
+        return report
 
     def loss(self):
         #Return loss
@@ -72,8 +75,8 @@ class Model:
     def metrics(self):
         return ['accuracy']
 
-    def load_weights(self):
-        self.algorithm.load_weights(self.weights_filename)
+    def save_model(self):
+        joblib.dump(self.algorithm, self.weights_filename)
 
-    def save_weights(self):
-        self.algorithm.save_weights(self.weights_filename)
+    def load_model(self):
+        self.algorithm = joblib.load(self.weights_filename)

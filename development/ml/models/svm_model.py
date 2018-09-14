@@ -1,11 +1,14 @@
 from typing import Callable, Dict, Tuple
 from sklearn import svm, metrics
 import numpy as np
-import pickle
+import pathlib
+from sklearn.externals import joblib
 
 from .base import Model
 from datasets.sklearn_digits import sklearnDigits
 from datasets.sequence import DatasetSequence
+
+DIRNAME = pathlib.Path('__file__').parents[0].resolve() / 'weights'
 
 class SVMModel(Model):
     def __init__(self, dataset_cls: type=sklearnDigits, algorithm_fn: Callable=None, dataset_args: Dict=None, algorithm_args: Dict=None):
@@ -23,6 +26,13 @@ class SVMModel(Model):
         max_prob_idx = np.argmax(probability_all_classes)
         return (str(pred), probability_all_classes[max_prob_idx])
 
-    #A better name would be save model, but trying to preserve original names
-    def save_weights(self):
-        return 'ok'
+    @property
+    def weights_filename(self):
+        DIRNAME.mkdir(parents=True, exist_ok=True)
+        return str(DIRNAME / f'{self.name}_weights.pkl')
+
+    def save_model(self):
+        joblib.dump(self.algorithm, self.weights_filename)
+
+    def load_model(self):
+        self.algorithm = joblib.load(self.weights_filename)
