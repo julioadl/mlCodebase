@@ -1,6 +1,6 @@
 from typing import Tuple, Union
 
-from numpy as np
+import numpy as np
 
 from models import SVMModel
 

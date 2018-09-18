@@ -2,13 +2,14 @@ import json
 import os
 import importlib
 import argparse
+from typing import Dict
 
 from training.train import train_model
 
-''''
+'''
 wandb
-''''
 import wandb
+'''
 
 DEFAULT_TRAINING_ARGS = {
     'batch_size': 64,
@@ -16,6 +17,7 @@ DEFAULT_TRAINING_ARGS = {
 }
 
 def run_experiment(experiment_config: Dict, save_weights: bool, use_wandb = False):
+
     """
     experiment_config is of the form
     {
@@ -56,12 +58,12 @@ def run_experiment(experiment_config: Dict, save_weights: bool, use_wandb = Fals
     model = model_cls(dataset_cls=dataset_cls, algorithm_fn=algorithm_fn, dataset_args=dataset_args, algorithm_args=algorithm_args)
     print(model)
 
-    experiment_config['train_args'] = {**DEFAULT_TRAINING_ARGS, **experiment_config('train_args', {})}
+    experiment_config['train_args'] = {**DEFAULT_TRAINING_ARGS, **experiment_config.get('train_args', {})}
     experiment_config['experiment_group'] = experiment_config.get('experiment_group', None)
-    ''''
+    '''
     Config GPU
     experiment_config['gpu_ind'] = gpu_ind
-    ''''
+    '''
 
     #if use_wandb:
     #   wandb.init()
@@ -69,11 +71,11 @@ def run_experiment(experiment_config: Dict, save_weights: bool, use_wandb = Fals
 
     train_model(
         model,
-        dataset,
-        epochs = experiment_config['train_args']['epochs'],
-        batch_size = experiment_config['train_args']['batch_size'],
-        gpu_ind = gpu_ind,
-        use_wandb = use_wandb
+        dataset
+        #epochs = experiment_config['train_args']['epochs'],
+        #batch_size = experiment_config['train_args']['batch_size'],
+        #gpu_ind = gpu_ind,
+        #use_wandb = use_wandb
     )
 
     score = model.evaluate(dataset.x_test, dataset.y_test)
@@ -83,10 +85,10 @@ def run_experiment(experiment_config: Dict, save_weights: bool, use_wandb = Fals
     #   wandb.log({'test_metric': score})
 
     if save_weights:
-        model.save_weights()
+        model.save_model()
 
 
-if __name__ == 'main':
+if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--gpu",
@@ -108,10 +110,10 @@ if __name__ == 'main':
     )
     args = parser.parse_args()
 
-''''
-GPU manager - see line 115 in https://github.com/julioadl/fsdl-text-recognizer-project/blob/master/lab5_sln/training/run_experiment.py
-''''
-
+    '''
+    GPU manager - see line 115 in https://github.com/julioadl/fsdl-text-recognizer-project/blob/master/lab5_sln/training/run_experiment.py
+    '''
     experiment_config = json.loads(args.experiment_config)
+
 #    os.environ["CUDA_VISIBLE_DEVICES"] = f"{args.gpu}"
     run_experiment(experiment_config, args.save, args.gpu)

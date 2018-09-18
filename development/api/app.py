@@ -12,11 +12,15 @@ import flask
 from flask import Flask, request, jsonify
 import numpy as np
 
-from ml.predict import predictor
+import sys
+sys.path.insert(0, '')
+from predict import predictor
 
 '''
 For Keras implementation see: https://github.com/gradescope/fsdl-text-recognizer-project/blob/master/lab6_sln/api/app.py
 '''
+
+app = Flask(__name__)
 
 @app.route('/')
 def index():
@@ -36,7 +40,7 @@ def _load_data():
         return data
     elif request.method == 'GET':
         url = request.args.get('url')
-        if url i None:
+        if url is None:
             return 'No URL'
         return url
     else:
