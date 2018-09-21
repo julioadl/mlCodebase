@@ -13,6 +13,7 @@ from flask import Flask, request, jsonify
 import numpy as np
 
 import sys
+#Insert path for development or include it in the Dockerfile
 sys.path.insert(0, '')
 from predict import predictor
 
