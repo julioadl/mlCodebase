@@ -71,9 +71,9 @@ def run_experiment(experiment_config: Dict, save_weights: bool, use_wandb = Fals
 
     train_model(
         model,
-        dataset
-        #epochs = experiment_config['train_args']['epochs'],
-        #batch_size = experiment_config['train_args']['batch_size'],
+        dataset,
+        epochs = experiment_config['train_args']['epochs'],
+        batch_size = experiment_config['train_args']['batch_size']
         #gpu_ind = gpu_ind,
         #use_wandb = use_wandb
     )

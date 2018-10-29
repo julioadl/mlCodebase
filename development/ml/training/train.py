@@ -2,8 +2,8 @@ from time import time
 from typing import Callable, Optional, Union, Tuple
 
 import numpy as np
-#from tensorflow.keras.callbacks import EarlyStopping, TensorBoard
-#from tensorflow.keras.optimizers import RMSprop
+from tensorflow.keras.callbacks import EarlyStopping, TensorBoard
+from tensorflow.keras.optimizers import RMSprop
 #Try to use wandb
 #import wandb
 #from wandb.keras import WandbCallback
@@ -33,11 +33,11 @@ def train_model(model: Model, dataset: Dataset, epochs: Optional[int] = None, gp
 
     t = time()
     #Train Neural Network. Originally:
-    #history = model.fit(dataset, batch_size, epochs, callbacks)
+    history = model.fit(dataset, batch_size, epochs, callbacks)
     '''
     See line 41 of https://github.com/gradescope/fsdl-text-recognizer-project/blob/master/lab6_sln/training/util.py
     '''
-    history = model.fit(dataset)
+    #history = model.fit(dataset)
     print('Training took {:2f} s'.format(time() - t))
 
     if GPU_UTIL_SAMPLE and gpu_ind is not None:
