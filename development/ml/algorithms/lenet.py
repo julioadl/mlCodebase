@@ -1,10 +1,10 @@
-from typing import Optional
+from typing import Optional, Tuple, Dict
 
 import tensorflow as tf
 from tensorflow.keras.layers import Conv2D, Dense, Dropout, Flatten, Input, Lambda, MaxPooling2D
 from tensorflow.keras.models import Sequential, Model
 
-def lenet(input_shape: Tuple[int, ...]) -> Model:
+def lenet(input_shape: Tuple[int, ...], output_shape: Tuple[int, ...], algorithm_args: Dict=None) -> Model:
     num_classes = output_shape[0]
 
     model = Sequential()

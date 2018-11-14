@@ -45,3 +45,5 @@ def train_model(model: Model, dataset: Dataset, epochs: Optional[int] = None, gp
         print(f'GPU utilization: {round(np.mean(gpu_utilizations), 2)} +- {round(np.std(gpu_utilizations), 2)}')
 
     return model
+
+    print(f'GPU utilization: {round(np.mean(gpu_utilizations), 2)}')
