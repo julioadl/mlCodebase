@@ -26,6 +26,7 @@ def run_experiment(experiment_config: Dict, save_weights: bool, use_wandb = Fals
             "max_overlap": 0.4
         },
         "model": "SVMModel",
+        "model_backend": "SKLearn",
         "algorithm": "SVM",
         "algorithm_args": {
             "window_width": 14,

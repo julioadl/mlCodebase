@@ -15,7 +15,7 @@ from models.base import Model
 EARLY_STOPPING = True
 GPU_UTIL_SAMPLE = True
 
-def train_model(model: Model, dataset: Dataset, epochs: Optional[int] = None, gpu_ind: Optional[int] = None, use_wandb=False) -> Model:
+def train_model(model, dataset: Dataset, epochs: Optional[int] = None, batch_size: Optional[int] = None, gpu_ind: Optional[int] = None, use_wandb=False):
     callbacks = []
 
 #   Early stopping with tensorflow

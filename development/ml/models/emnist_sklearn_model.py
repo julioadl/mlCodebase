@@ -4,7 +4,7 @@ import numpy as np
 import pathlib
 from sklearn.externals import joblib
 
-from .base import Model
+from .base import ModelSKLearn as Model
 from datasets.sklearn_digits import sklearnDigits
 from datasets.sequence import DatasetSequence
 

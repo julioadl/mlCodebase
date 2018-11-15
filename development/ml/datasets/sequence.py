@@ -1,10 +1,10 @@
 import numpy as np
-#from tensorflow.keras.utils import Sequence
+from tensorflow.keras.utils import Sequence
 
 '''
 Implementation for sklearn
 '''
-class DatasetSequence:
+class DatasetSequence(Sequence):
     """
     Implementation for tensorflow and keras should be found here: https://github.com/gradescope/fsdl-text-recognizer-project/blob/master/lab6_sln/text_recognizer/datasets/sequence.py
     """

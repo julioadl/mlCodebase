@@ -1,3 +1,3 @@
 #### Populate with class for models to be used
-from .svm_model import SVMModel
-from .lenet_model import LeNetModel
+from .emnist_sklearn_model import EmnistSklearn
+from .emnist_model import EmnistModel

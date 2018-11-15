@@ -6,3 +6,4 @@ scikit_learn==0.20.0
 tensorflow-gpu
 jupyter
 boltons
+Pillow

@@ -6,32 +6,15 @@ import tensorflow
 from tensorflow.keras.models import load_model
 from sklearn.externals import joblib
 
-from .base import Model
+from .base import ModelTf as Model
 from datasets.sklearn_digits import sklearnDigits
 from datasets.sequence import DatasetSequence
 
 DIRNAME = pathlib.Path('__file__').parents[0].resolve() / 'weights'
 
-class LeNetModel(Model):
+class EmnistModel(Model):
     def __init__(self, dataset_cls: type=sklearnDigits, algorithm_fn: Callable=None, dataset_args: Dict=None, algorithm_args: Dict=None):
         super().__init__(dataset_cls, algorithm_fn, dataset_args, algorithm_args)
-
-    def evaluate(self, x, y):
-        sequence = DatasetSequence(x, y, batch_size=12)
-        preds = self.algorithm.predict(sequence.x)
-        report = metrics.classification_report(sequence.y, preds)
-        return report
-
-    def predict(self, input: np.ndarray) -> Tuple[str, float]:
-        pred = self.algorithm.predict(input)
-        probability_all_classes = self.algorithm.predict_proba(input)
-        max_prob_idx = np.argmax(probability_all_classes)
-        return (str(pred), probability_all_classes[max_prob_idx])
-
-    @property
-    def weights_filename(self):
-        DIRNAME.mkdir(parents=True, exist_ok=True)
-        return str(DIRNAME / f'{self.name}_weights.pkl')
 
 '''
 Correct these to work with Tf
