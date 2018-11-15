@@ -10,7 +10,7 @@ from datasets.sequence import DatasetSequence
 
 DIRNAME = pathlib.Path('__file__').parents[0].resolve() / 'weights'
 
-class SVMModel(Model):
+class EmnistSklearn(Model):
     def __init__(self, dataset_cls: type=sklearnDigits, algorithm_fn: Callable=None, dataset_args: Dict=None, algorithm_args: Dict=None):
         super().__init__(dataset_cls, algorithm_fn, dataset_args, algorithm_args)
 

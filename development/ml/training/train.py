@@ -9,7 +9,7 @@ from tensorflow.keras.optimizers import RMSprop
 #from wandb.keras import WandbCallback
 
 from datasets.base import Dataset
-from models.base import Model
+#from models.base import Model
 #from training.gpu_util_sampler import GPUUtilizationSample
 
 EARLY_STOPPING = True

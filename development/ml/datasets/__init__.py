@@ -4,3 +4,4 @@
 #''''
 from .sklearn_digits import sklearnDigits
 from .sklearn_20newsgroups import sklearnNewsGroup
+from .emnist import EmnistDataset
