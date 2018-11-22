@@ -15,6 +15,7 @@ RUN	apt-get update && \
     apt-get install -y python3.6-dev && \
     apt-get install -y python3-pip && \
     apt-get install -y python3.6-venv && \
+    apt-get install -y git-core && \
     python3.6 -m pip install pip --upgrade && \
     python3.6 -m pip install wheel && \
     pip install -r requirements.txt
