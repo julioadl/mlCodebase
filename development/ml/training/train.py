@@ -10,18 +10,18 @@ from tensorflow.keras.optimizers import RMSprop
 
 from datasets.base import Dataset
 #from models.base import Model
-#from training.gpu_util_sampler import GPUUtilizationSample
+from .gpu_util_sampler import GPUUtilizationSampler
 
-EARLY_STOPPING = True
+EARLY_STOPPING = False
 GPU_UTIL_SAMPLE = True
 
 def train_model(model, dataset: Dataset, epochs: Optional[int] = None, batch_size: Optional[int] = None, gpu_ind: Optional[int] = None, use_wandb=False):
     callbacks = []
 
 #   Early stopping with tensorflow
-#    if EARLY_STOPPING:
-#       early_stopping = EarlyStopping(monitor='val_loss', mon_delta=0.01, patience = 3, verbose=1, mode='auto')
-#       ballbacks.append(early_stopping)
+    if EARLY_STOPPING:
+       early_stopping = EarlyStopping(monitor='val_loss', min_delta=0.01, patience = 3, verbose=1, mode='auto')
+       callbacks.append(early_stopping)
 
     if GPU_UTIL_SAMPLE and gpu_ind is not None:
         gpu_utilization = GPUUtilizationSampler(gpu_ind)

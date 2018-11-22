@@ -16,7 +16,7 @@ DEFAULT_TRAINING_ARGS = {
     'epochs': 8
 }
 
-def run_experiment(experiment_config: Dict, save_weights: bool, use_wandb = False):
+def run_experiment(experiment_config: Dict, save_weights: bool, gpu_ind:int, use_wandb = False):
 
     """
     experiment_config is of the form
@@ -41,7 +41,7 @@ def run_experiment(experiment_config: Dict, save_weights: bool, use_wandb = Fals
     gpu_ind: integer specifying which gpu to use
     """
 
-    print(f'Running experiment with config {experiment_config}')
+    print(f'Running experiment with config {experiment_config} on GPU {gpu_ind}')
 
     datasets_module = importlib.import_module('datasets')
     dataset_cls = getattr(datasets_module, experiment_config['dataset'])
@@ -61,10 +61,10 @@ def run_experiment(experiment_config: Dict, save_weights: bool, use_wandb = Fals
 
     experiment_config['train_args'] = {**DEFAULT_TRAINING_ARGS, **experiment_config.get('train_args', {})}
     experiment_config['experiment_group'] = experiment_config.get('experiment_group', None)
-    '''
-    Config GPU
+
+    #Config GPU
     experiment_config['gpu_ind'] = gpu_ind
-    '''
+
 
     #if use_wandb:
     #   wandb.init()
@@ -74,8 +74,8 @@ def run_experiment(experiment_config: Dict, save_weights: bool, use_wandb = Fals
         model,
         dataset,
         epochs = experiment_config['train_args']['epochs'],
-        batch_size = experiment_config['train_args']['batch_size']
-        #gpu_ind = gpu_ind,
+        batch_size = experiment_config['train_args']['batch_size'],
+        gpu_ind = gpu_ind
         #use_wandb = use_wandb
     )
 
@@ -86,7 +86,7 @@ def run_experiment(experiment_config: Dict, save_weights: bool, use_wandb = Fals
     #   wandb.log({'test_metric': score})
 
     if save_weights:
-        model.save_model()
+        model.save_weights()
 
 
 if __name__ == '__main__':
@@ -116,5 +116,5 @@ if __name__ == '__main__':
     '''
     experiment_config = json.loads(args.experiment_config)
 
-#    os.environ["CUDA_VISIBLE_DEVICES"] = f"{args.gpu}"
-    run_experiment(experiment_config, args.save, args.gpu)
+    os.environ["CUDA_VISIBLE_DEVICES"] = f"{args.gpu}"
+    run_experiment(experiment_config, args.save, args.gpu, False)

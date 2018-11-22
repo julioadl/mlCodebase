@@ -7,3 +7,7 @@ tensorflow-gpu
 jupyter
 boltons
 Pillow
+pytest
+opencv-python
+editdistance
+gpustat

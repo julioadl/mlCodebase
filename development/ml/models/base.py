@@ -10,7 +10,7 @@ from tensorflow.keras.optimizers import RMSprop
 
 from datasets.sequence import DatasetSequence
 
-DIRNAME = pathlib.Path(__file__).parents[0].resolve() / 'weights'
+DIRNAME = pathlib.Path('__file__').parents[0].resolve() / 'weights'
 
 class ModelSKLearn:
     def __init__(self, dataset_cls: type, algorithm_fn: Callable, dataset_args: Dict=None, algorithm_args: Dict=None):
