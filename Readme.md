@@ -1,3 +1,3 @@
-# mlCodebase
+# mlCodebase - examples
 
-Content in this repo is based on https://github.com/gradescope/fsdl-text-recognizer-project licensed under a MIT license
+This branch intends to replicate content on https://github.com/gradescope/fsdl-text-recognizer-project to provide examples

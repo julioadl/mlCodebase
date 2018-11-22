@@ -5,3 +5,4 @@
 from .sklearn_digits import sklearnDigits
 from .sklearn_20newsgroups import sklearnNewsGroup
 from .emnist import EmnistDataset
+from .emnist_lines import EmnistLinesDataset
