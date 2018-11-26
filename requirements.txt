@@ -11,3 +11,5 @@ pytest
 opencv-python
 editdistance
 gpustat
+wandb
+redlock

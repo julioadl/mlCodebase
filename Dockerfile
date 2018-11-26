@@ -2,7 +2,7 @@ FROM nvidia/cuda:9.0-base-ubuntu16.04
 FROM nvidia/cuda:9.0-runtime-ubuntu16.04
 FROM nvidia/cuda:9.0-cudnn7-runtime-ubuntu16.04
 
-COPY /. /.
+COPY /. /mlCodebase/.
 
 RUN	apt-get update && \
     apt-get install emacs24 -y && \
@@ -16,6 +16,7 @@ RUN	apt-get update && \
     apt-get install -y python3-pip && \
     apt-get install -y python3.6-venv && \
     apt-get install -y git-core && \
+    apt-get install parallel && \
     python3.6 -m pip install pip --upgrade && \
     python3.6 -m pip install wheel && \
     pip install -r requirements.txt
