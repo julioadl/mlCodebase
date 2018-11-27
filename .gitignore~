@@ -1,13 +1,11 @@
 #Data
 development/ml/data
 weights
-wandb
 
 #Other
 .DS_Store
 .DS_Store?
-.~requirements.txt
-.wandb-debug.lo
+~requirements.txt
 
 #Python
 __pycache__
