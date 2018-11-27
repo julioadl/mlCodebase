@@ -6,8 +6,10 @@ wandb
 #Other
 .DS_Store
 .DS_Store?
-.~requirements.txt
-.wandb-debug.lo
+.requirements.txt~
+.wandb-debug.log
+.gitignore~
+.Dockerfile~
 
 #Python
 __pycache__
