@@ -5,18 +5,17 @@ import argparse
 from typing import Dict
 
 from training.train import train_model
+from training.gpu_manager import GPUManager
 
-'''
-wandb
 import wandb
-'''
 
 DEFAULT_TRAINING_ARGS = {
     'batch_size': 64,
     'epochs': 8
 }
 
-def run_experiment(experiment_config: Dict, save_weights: bool, gpu_ind:int, use_wandb = False):
+def run_experiment(experiment_config: Dict, save_weights: bool, gpu_ind:int,
+                   use_wandb: bool = True):
 
     """
     experiment_config is of the form
@@ -65,25 +64,24 @@ def run_experiment(experiment_config: Dict, save_weights: bool, gpu_ind:int, use
     #Config GPU
     experiment_config['gpu_ind'] = gpu_ind
 
-
-    #if use_wandb:
-    #   wandb.init()
-    #   wandb.config.update(experiment_config)
+    if use_wandb:
+        wandb.init()
+        wandb.config.update(experiment_config)
 
     train_model(
         model,
         dataset,
         epochs = experiment_config['train_args']['epochs'],
         batch_size = experiment_config['train_args']['batch_size'],
-        gpu_ind = gpu_ind
-        #use_wandb = use_wandb
+        gpu_ind = gpu_ind,
+        use_wandb = use_wandb
     )
 
     score = model.evaluate(dataset.x_test, dataset.y_test)
     print(f'Test evaluation:\n s {score}')
 
-    #if use_wandb:
-    #   wandb.log({'test_metric': score})
+    if use_wandb:
+        wandb.log({'test_metric': score})
 
     if save_weights:
         model.save_weights()
@@ -114,7 +112,11 @@ if __name__ == '__main__':
     '''
     GPU manager - see line 115 in https://github.com/julioadl/fsdl-text-recognizer-project/blob/master/lab5_sln/training/run_experiment.py
     '''
+    if args.gpu < 0:
+        gpu_manager = GPUManager()
+        args.gpu = gpu_manager.get_free_gpu()
+
     experiment_config = json.loads(args.experiment_config)
 
     os.environ["CUDA_VISIBLE_DEVICES"] = f"{args.gpu}"
-    run_experiment(experiment_config, args.save, args.gpu, False)
+    run_experiment(experiment_config, args.save, args.gpu)

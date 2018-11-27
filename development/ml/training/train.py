@@ -5,8 +5,8 @@ import numpy as np
 from tensorflow.keras.callbacks import EarlyStopping, TensorBoard
 from tensorflow.keras.optimizers import RMSprop
 #Try to use wandb
-#import wandb
-#from wandb.keras import WandbCallback
+import wandb
+from wandb.keras import WandbCallback
 
 from datasets.base import Dataset
 #from models.base import Model
@@ -15,7 +15,7 @@ from .gpu_util_sampler import GPUUtilizationSampler
 EARLY_STOPPING = False
 GPU_UTIL_SAMPLE = True
 
-def train_model(model, dataset: Dataset, epochs: Optional[int] = None, batch_size: Optional[int] = None, gpu_ind: Optional[int] = None, use_wandb=False):
+def train_model(model, dataset: Dataset, epochs: Optional[int] = None, batch_size: Optional[int] = None, gpu_ind: Optional[int] = None, use_wandb = False):
     callbacks = []
 
 #   Early stopping with tensorflow
