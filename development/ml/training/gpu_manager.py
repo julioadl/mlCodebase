@@ -3,7 +3,7 @@ import time
 
 import gpustat
 import numpy as np
-#from redlock import redlock
+from redlock import RedLock
 
 
 GPU_LOCK_TIMEOUT = 5000 # ms
@@ -11,7 +11,6 @@ GPU_LOCK_TIMEOUT = 5000 # ms
 
 class GPUManager(object):
     def __init__(self, verbose: bool=False):
-        #self.lock_manager = redlock([{"host": "localhost", "port": 6379, "db": 0}, ])
         self.verbose = verbose
 
     def get_free_gpu(self):
@@ -41,8 +40,6 @@ class GPUManager(object):
             gpu_ind = np.random.choice(available_gpu_inds)
             if self.verbose:
                 print(f'pid {os.getpid()} picking gpu {gpu_ind}')
-            #if self.lock_manager.lock(f'gpu_{gpu_ind}', GPU_LOCK_TIMEOUT):
-            #    return int(gpu_ind)
-            if self.verbose:
-                print(f'pid {os.getpid()} couldnt get lock')
-        return None
+            return gpu_ind
+        else:
+            return None

@@ -62,7 +62,7 @@ def run_experiment(experiment_config: Dict, save_weights: bool, gpu_ind:int,
     experiment_config['experiment_group'] = experiment_config.get('experiment_group', None)
 
     #Config GPU
-    experiment_config['gpu_ind'] = gpu_ind
+    experiment_config['gpu_ind'] = int(gpu_ind)
 
     if use_wandb:
         wandb.init()

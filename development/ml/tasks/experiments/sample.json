@@ -5,22 +5,8 @@
             "dataset": "EmnistDataset",
             "model": "EmnistModel",
             "algorithm": "lenet",
-            "algorithm_args": {
-                "num_layers": 2
-            },
             "train_args": {
-                "batch_size": 256
-            }
-        },
-        {
-            "dataset": "EmnistDataset",
-            "model": "EmnistModel",
-            "algorithm": "lenet",
-            "algorithm_args": {
-                "num_layers": 4
-            },
-            "train_args": {
-                "batch_size": 256
+                "epochs": 1
             }
         },
         {
@@ -28,7 +14,15 @@
             "model": "EmnistModel",
             "algorithm": "lenet",
             "train_args": {
-                "batch_size": 128
+                "epochs": 1
+            }
+        },
+        {
+            "dataset": "EmnistDataset",
+            "model": "EmnistModel",
+            "algorithm": "lenet",
+            "train_args": {
+                "epochs": 2
             }
         }
     ]

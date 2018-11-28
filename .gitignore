@@ -2,6 +2,7 @@
 development/ml/data
 weights
 wandb
+development/ml/wandb
 
 #Other
 .DS_Store
@@ -10,6 +11,7 @@ wandb
 .wandb-debug.log
 .gitignore~
 .Dockerfile~
+.#startContainer.sh#
 
 #Python
 __pycache__

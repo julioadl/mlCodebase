@@ -1,0 +1,65 @@
+[I 14:15:08.802 NotebookApp] Writing notebook server cookie secret to /root/.local/share/jupyter/runtime/notebook_cookie_secret
+[I 14:15:08.934 NotebookApp] Serving notebooks from local directory: /mlCodebase/development/ml
+[I 14:15:08.934 NotebookApp] The Jupyter Notebook is running at:
+[I 14:15:08.934 NotebookApp] http://(cf6e4cd60a8d or 127.0.0.1):8000/
+[I 14:15:08.934 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[W 14:15:08.934 NotebookApp] No web browser found: could not locate runnable browser.
+[I 14:15:21.478 NotebookApp] 302 GET / (146.169.174.224) 0.83ms
+[W 14:15:21.487 NotebookApp] Clearing invalid/expired login cookie username-dev-pollstr-io-8000
+[W 14:15:21.488 NotebookApp] Clearing invalid/expired login cookie username-dev-pollstr-io-8000
+[I 14:15:21.488 NotebookApp] 302 GET /tree? (146.169.174.224) 2.50ms
+[I 14:15:27.030 NotebookApp] 302 POST /login?next=%2Ftree%3F (146.169.174.224) 1.36ms
+[I 14:15:36.714 NotebookApp] New terminal with automatic name: 1
+[I 14:17:56.410 NotebookApp] Saving file at /algorithms/__init__.py
+[I 14:18:21.128 NotebookApp] 302 GET / (146.169.174.224) 0.54ms
+[I 14:19:12.263 NotebookApp] Saving file at /algorithms/__init__.py
+[I 14:20:10.730 NotebookApp] Saving file at /tasks/train.sh
+[I 14:27:15.284 NotebookApp] Saving file at /training/gpu_manager.py
+[I 14:27:20.734 NotebookApp] Saving file at /training/gpu_manager.py
+[I 14:27:28.687 NotebookApp] Creating new notebook in /training
+[I 14:27:28.723 NotebookApp] Writing notebook-signing key to /root/.local/share/jupyter/notebook_secret
+[I 14:27:29.672 NotebookApp] Kernel started: 478e4cd7-d379-415c-9233-4d5cb4552876
+[I 14:27:30.036 NotebookApp] Adapting to protocol v5.1 for kernel 478e4cd7-d379-415c-9233-4d5cb4552876
+[I 14:28:59.371 NotebookApp] Saving file at /training/gpu_manager.py
+[I 14:29:30.322 NotebookApp] Saving file at /training/Untitled.ipynb
+[I 14:32:31.747 NotebookApp] Saving file at /training/gpu_manager.py
+[I 14:37:40.592 NotebookApp] Saving file at /training/gpu_manager.py
+[I 14:38:55.147 NotebookApp] Saving file at /training/gpu_manager.py
+[I 14:39:16.695 NotebookApp] Saving file at /training/gpu_manager.py
+[I 14:41:45.414 NotebookApp] Saving file at /training/gpu_manager.py
+[I 14:44:00.824 NotebookApp] Saving file at /training/gpu_manager.py
+[I 14:49:02.927 NotebookApp] Saving file at /training/gpu_manager.py
+[I 14:49:42.373 NotebookApp] Saving file at /tasks/experiments/sample.json
+[I 14:51:11.558 NotebookApp] Starting buffering for 478e4cd7-d379-415c-9233-4d5cb4552876:dedfdc77bdc84db18ab123df708e1d47
+[I 14:51:23.756 NotebookApp] Saving file at /training/gpu_manager.py
+[I 14:51:32.288 NotebookApp] Kernel shutdown: 478e4cd7-d379-415c-9233-4d5cb4552876
+[W 14:51:32.291 NotebookApp] delete /training/Untitled.ipynb
+[W 14:51:32.292 NotebookApp] Skipping trash for /mlCodebase/development/ml/training/Untitled.ipynb, on different device to home directory
+[I 14:52:27.472 NotebookApp] Saving file at /tasks/experiments/sample.json
+[I 14:58:27.282 NotebookApp] Saving file at /tasks/experiments/sample.json
+[I 15:01:54.343 NotebookApp] Saving file at /tasks/experiments/sample.json
+[I 15:02:08.340 NotebookApp] Saving file at /tasks/experiments/sample.json
+[I 15:05:29.856 NotebookApp] Saving file at /tasks/experiments/sample.json
+[I 15:19:53.400 NotebookApp] 302 GET / (146.169.174.224) 0.58ms
+[I 15:20:31.500 NotebookApp] EOF on FD 13; stopping reading
+[I 15:20:31.601 NotebookApp] Terminal 1 closed
+[I 15:20:35.214 NotebookApp] New terminal with automatic name: 1
+[I 15:24:22.445 NotebookApp] Saving file at /tasks/train.sh
+[I 11:40:45.037 NotebookApp] 302 GET / (146.169.173.162) 0.62ms
+[I 12:06:41.355 NotebookApp] 302 GET / (146.169.173.162) 0.61ms
+[I 12:06:41.361 NotebookApp] 302 GET /tree? (146.169.173.162) 0.81ms
+[I 14:42:35.427 NotebookApp] EOF on FD 14; stopping reading
+[I 14:42:35.528 NotebookApp] Terminal 1 closed
+[I 14:42:46.237 NotebookApp] New terminal with automatic name: 1
+[I 14:45:33.073 NotebookApp] Saving file at /tasks/experiments/sample.json
+[I 14:50:54.238 NotebookApp] Saving file at /tasks/experiments/sample.json
+[I 14:52:58.251 NotebookApp] Saving file at /run_experiment.py
+[I 14:53:52.906 NotebookApp] Saving file at /run_experiment.py
+[I 14:54:24.057 NotebookApp] Saving file at /training/prepare_experiments.py
+[I 15:02:14.299 NotebookApp] Saving file at /tasks/experiments/sample.json
+[I 15:02:16.726 NotebookApp] Saving file at /training/prepare_experiments.py
+[I 15:04:52.172 NotebookApp] Saving file at /run_experiment.py
+[I 15:08:36.197 NotebookApp] Saving file at /run_experiment.py
+[I 15:10:02.249 NotebookApp] Saving file at /run_experiment.py
+[I 15:12:58.405 NotebookApp] Saving file at /tasks/experiments/sample.json
+[I 15:14:25.129 NotebookApp] Saving file at /tasks/train.sh
