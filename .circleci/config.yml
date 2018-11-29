@@ -8,7 +8,7 @@ jobs:
       branches:
         only:
           - examples
-	  
+
       docker:
         # specify the version you desire here
         # use `-browsers` prefix for selenium tests, e.g. `3.6.1-browsers
@@ -23,7 +23,7 @@ jobs:
 
       # Download and cache dependencies
         - restore_cache:
-      	  keys:
+	  keys:
             - cache-{{ checksum "Pipfile.lock" }}
 
         - run:
@@ -35,7 +35,7 @@ jobs:
               pipenv install --dev
 
         - save_cache:
-      	    key: cache-{{ checksum "Pipfile.lock" }}
+          key: cache-{{ checksum "Pipfile.lock" }}
             paths:
               - ~/.local
         - run:
@@ -51,4 +51,3 @@ jobs:
         - store_artifacts:
             path: test-reports
             destination: test-reports
-		
