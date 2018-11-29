@@ -63,3 +63,74 @@
 [I 15:10:02.249 NotebookApp] Saving file at /run_experiment.py
 [I 15:12:58.405 NotebookApp] Saving file at /tasks/experiments/sample.json
 [I 15:14:25.129 NotebookApp] Saving file at /tasks/train.sh
+[I 12:32:31.198 NotebookApp] 302 GET / (146.169.174.234) 0.62ms
+[I 12:33:27.420 NotebookApp] Creating new file in /algorithms
+[I 12:50:31.570 NotebookApp] Saving file at /algorithms/line_lstm.py
+[I 12:51:21.622 NotebookApp] Saving file at /algorithms/__init__.py
+[I 12:51:29.255 NotebookApp] New terminal with automatic name: 2
+[I 12:51:34.961 NotebookApp] EOF on FD 14; stopping reading
+[I 12:51:35.062 NotebookApp] Terminal 1 closed
+[I 12:51:37.307 NotebookApp] EOF on FD 25; stopping reading
+[I 12:51:37.408 NotebookApp] Terminal 2 closed
+[I 12:52:40.601 NotebookApp] Saving file at /tasks/train.sh
+[I 12:52:57.979 NotebookApp] 302 GET / (146.169.174.234) 0.53ms
+[I 12:53:02.948 NotebookApp] New terminal with automatic name: 1
+[I 12:55:56.763 NotebookApp] Saving file at /algorithms/line_lstm.py
+[I 12:56:15.422 NotebookApp] Saving file at /algorithms/line_lstm.py
+[I 12:56:34.419 NotebookApp] Saving file at /algorithms/line_lstm.py
+[I 12:56:55.270 NotebookApp] Saving file at /algorithms/line_lstm.py
+[I 13:34:18.938 NotebookApp] Saving file at /algorithms/line_lstm.py
+[I 13:37:19.545 NotebookApp] New terminal with automatic name: 2
+[I 13:37:37.865 NotebookApp] Creating new file in /datasets
+[I 13:39:47.079 NotebookApp] Saving file at /datasets/iam_lines.py
+[I 13:40:52.100 NotebookApp] Saving file at /datasets/__init__.py
+[I 13:41:01.555 NotebookApp] Saving file at /tasks/train.sh
+[I 13:47:45.971 NotebookApp] Saving file at /tasks/train.sh
+[I 13:48:34.880 NotebookApp] Saving file at /tasks/train.sh
+[I 13:49:42.119 NotebookApp] Saving file at /models/line_model.py
+[I 13:52:58.462 NotebookApp] Saving file at /models/line_model.py
+[I 13:53:36.466 NotebookApp] Saving file at /algorithms/line_lstm.py
+[I 13:58:47.299 NotebookApp] Saving file at /tasks/train.sh
+[I 14:13:39.128 NotebookApp] Creating new directory in 
+[I 14:13:53.887 NotebookApp] Refusing to serve hidden directory '/mlCodebase/development/ml/.circleci', via 404 Error
+[W 14:13:53.887 NotebookApp] 404 PATCH /api/contents/Untitled%20Folder (146.169.174.234): directory does not exist: '.circleci'
+[W 14:13:53.887 NotebookApp] directory does not exist: '.circleci'
+[W 14:13:53.888 NotebookApp] 404 PATCH /api/contents/Untitled%20Folder (146.169.174.234) 2.45ms referer=http://dev.pollstr.io:8000/tree
+[W 14:14:09.062 NotebookApp] 500 PATCH /api/contents/Untitled%20Folder (146.169.174.234): Unknown error renaming file: Untitled Folder [Errno 2] No such file or directory: '/mlCodebase/development/ml/Untitled Folder'
+[W 14:14:09.064 NotebookApp] Unknown error renaming file: Untitled Folder [Errno 2] No such file or directory: '/mlCodebase/development/ml/Untitled Folder'
+[E 14:14:09.064 NotebookApp] {
+      "Host": "dev.pollstr.io:8000",
+      "Connection": "keep-alive",
+      "Content-Length": "19",
+      "Accept": "application/json, text/javascript, */*; q=0.01",
+      "Origin": "http://dev.pollstr.io:8000",
+      "X-Requested-With": "XMLHttpRequest",
+      "X-Xsrftoken": "2|8268d24a|2039dff9bc3ac075f0e5f1cce2fdc273|1541522577",
+      "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36",
+      "Content-Type": "application/json",
+      "Referer": "http://dev.pollstr.io:8000/tree",
+      "Accept-Encoding": "gzip, deflate",
+      "Accept-Language": "en-US,en;q=0.9,es;q=0.8",
+      "Cookie": "_ga=GA1.2.1403209039.1500550788; _xsrf=2|8268d24a|2039dff9bc3ac075f0e5f1cce2fdc273|1541522577; username-dev-pollstr-io-8080=\"2|1:0|10:1542292953|28:username-dev-pollstr-io-8080|44:ODkyNWViZDI4YjRhNGRiZTk1YmM1NDQ2MTE5MjE0YTA=|b871669cecdc21579329312befde358757399ed6e425887f919051260b3e81ee\"; username-dev-pollstr-io-8001=\"2|1:0|10:1542895513|28:username-dev-pollstr-io-8001|44:NmE3MzM1MmQwOGRlNDQzMDg5NDcyMWQ4MjgxYTQwMjQ=|1d26f0e192cf590abc575754a163383c00b09a1c90a1f26cfcc9b5cb9fa9ebda\"; username-dev-pollstr-io-8000=\"2|1:0|10:1543328127|28:username-dev-pollstr-io-8000|44:N2Y5NTJiZGFkODg2NGVjY2E0MmIwYmIyNWMwZjhhOTA=|3b284044806e1babee23f09861d33a91b0c87c4d7bb8012175ea526429ab6180\"; username-dev-pollstr-io-8081=\"2|1:0|10:1543406501|28:username-dev-pollstr-io-8081|44:NzgzYzVkOWQ4MTdjNDQxZTg3ZDJjMDM2Zjc5YWIyZTk=|3b1151ffa7b84c371e21899adfa049e390aa9444e966c7433d9d1aacf344ca0b\""
+    }
+[E 14:14:09.064 NotebookApp] 500 PATCH /api/contents/Untitled%20Folder (146.169.174.234) 3.54ms referer=http://dev.pollstr.io:8000/tree
+[I 14:14:28.797 NotebookApp] Creating new directory in 
+[W 14:14:39.923 NotebookApp] 409 PATCH /api/contents/Untitled%20Folder (146.169.174.234): File already exists: .circleci
+[W 14:14:39.924 NotebookApp] File already exists: .circleci
+[W 14:14:39.924 NotebookApp] 409 PATCH /api/contents/Untitled%20Folder (146.169.174.234) 2.41ms referer=http://dev.pollstr.io:8000/tree
+[W 14:15:50.857 NotebookApp] delete /Untitled Folder
+[I 14:47:01.907 NotebookApp] Creating new directory in 
+[I 14:48:16.265 NotebookApp] Creating new file in /evaluation
+[W 14:51:41.002 NotebookApp] 404 GET /api/contents/evaluation/untitled.txt?content=0&_=1543502896631 (146.169.174.234): No such file or directory: evaluation/untitled.txt
+[W 14:51:41.002 NotebookApp] No such file or directory: evaluation/untitled.txt
+[W 14:51:41.003 NotebookApp] 404 GET /api/contents/evaluation/untitled.txt?content=0&_=1543502896631 (146.169.174.234) 1.55ms referer=http://dev.pollstr.io:8000/edit/evaluation/untitled.txt
+[I 14:51:41.015 NotebookApp] Uploading file to /evaluation/untitled.txt
+[W 14:51:48.423 NotebookApp] delete /evaluation/evaluate_character_predictor.py
+[W 14:51:48.423 NotebookApp] Skipping trash for /mlCodebase/development/ml/evaluation/evaluate_character_predictor.py, on different device to home directory
+[I 14:55:40.549 NotebookApp] Saving file at /evaluation/evaluate_emnist_predictor.py
+[I 14:56:18.473 NotebookApp] EOF on FD 14; stopping reading
+[I 14:56:18.573 NotebookApp] Terminal 1 closed
+[I 14:56:19.893 NotebookApp] EOF on FD 24; stopping reading
+[I 14:56:19.993 NotebookApp] Terminal 2 closed
+[I 14:57:24.705 NotebookApp] Saving file at /tasks/train.sh
+[I 14:57:33.293 NotebookApp] New terminal with automatic name: 1
