@@ -7,7 +7,7 @@ jobs:
   build:
       branches:
         only:
-	  - examples
+          - examples
       docker:
             - image: circleci/python:3.6.5
 
