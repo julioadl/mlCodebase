@@ -36,8 +36,9 @@ jobs:
 
         - save_cache:
           key: cache-{{ checksum "Pipfile.lock" }}
-            paths:
-              - ~/.local
+          paths:
+            - ~/.local
+
         - run:
             name: run prediction tests
             command: |
