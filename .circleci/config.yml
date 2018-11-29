@@ -17,9 +17,9 @@ jobs:
       - run:
           name: install dependencies
           command: |
-            pip install pipenv --force-reinstall
+            pip install --user pipenv --force-reinstall
             sed -i 's/tensorflow-gpu/tensorflow/' Pipfile
-            pipenv install --user --dev
+            pipenv install --dev
 
       - save_cache:
           key: cache-{{ checksum "Pipfile.lock" }}
