@@ -1,42 +1,42 @@
 version: 2
 jobs:
-build:
-branches:
-only:
-- examples
-docker:
-- image: circleci/python:3.6.5
+  build:
+    branches:
+      only:
+        - examples
+    docker:
+      - image: circleci/python:3.6.5
 
-steps:
-- checkout
+    steps:
+      - checkout
 
-- restore_cache:
-keys:
-- cache-{{ checksum "Pipfile.lock" }}
+      - restore_cache:
+          keys:
+          - cache-{{ checksum "Pipfile.lock" }}
 
-- run:
-name: install dependencies
-command: |
-sudo pip install --upgrade pip
-sudo pip install pipenv
-sed -i 's/tensorflow-gpu/tensorflow/' Pipfile
-pipenv install --dev
+      - run:
+          name: install dependencies
+          command: |
+            sudo pip install --upgrade pip
+            sudo pip install pipenv
+            sed -i 's/tensorflow-gpu/tensorflow/' Pipfile
+            pipenv install --dev
 
-- save_cache:
-key: cache-{{ checksum "Pipfile.lock" }}
-paths:
-- ~/.local
+      - save_cache:
+          key: cache-{{ checksum "Pipfile.lock" }}
+          paths:
+            - ~/.local
 
-- run:
-name: run prediction tests
-command: |
-cd development/ml && PYTHONPATH=. pipenv run pytest -s tests/*
+      - run:
+          name: run prediction tests
+          command: |
+            cd development/ml && PYTHONPATH=. pipenv run pytest -s tests/*
 
-- run:
-name: run evaluation tests
-command: |
-cd development/ml && PYTHONPATH=. pipenv run pytest -s evaluation/*
+      - run:
+          name: run evaluation tests
+          command: |
+            cd development/ml && PYTHONPATH=. pipenv run pytest -s evaluation/*
 
-- store_artifacts:
-path: test-reports
+      - store_artifacts:
+          path: test-reports
           destination: test-reports
