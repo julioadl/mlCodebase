@@ -1,4 +1,5 @@
 [[source]]
+<<<<<<< HEAD
 name = "pypi"
 url = "https://pypi.org/simple"
 verify_ssl = true
@@ -22,6 +23,37 @@ redlock = "*"
 nltk = "*"
 Flask = "==1.0.2"
 Pillow = "*"
+=======
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+boltons = "*"
+editdistance = "*"
+flask = "*"
+h5py = "*"
+numpy = "*"
+opencv-python-headless = "*"
+pytest = "*"
+requests = "*"
+tensorflow-gpu = "*"
+# It's annoying that we can't specify non-gpu installation if CUDA is not present.
+# One solution could be https://github.com/ed-alertedh/multiple-pipenv-example/tree/master/pipenv
+
+[dev-packages]
+gpustat = "*"
+gradescope-utils = "*"
+grequests = "*"
+jupyterlab = "*"
+matplotlib = "*"
+nltk = "*"
+pylint = "*"
+pyyaml = "*"
+redlock-py = "*"
+scipy = "*"
+wandb = "*"
+>>>>>>> 0266d39b11573ba7ac9c2397c55d549f15e785eb
 
 [requires]
 python_version = "3.6"
