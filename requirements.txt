@@ -1,0 +1,16 @@
+Flask==1.0.2
+numpy==1.14.3
+typing==3.6.4
+h5py==2.7.1
+scikit_learn==0.20.0
+tensorflow-gpu
+jupyter
+boltons
+Pillow
+pytest
+opencv-python
+editdistance
+gpustat
+wandb
+redlock
+nltk

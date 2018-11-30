@@ -19,7 +19,12 @@ RUN	apt-get update && \
     apt-get install -y parallel && \
     python3.6 -m pip install pip --upgrade && \
     python3.6 -m pip install wheel && \
-    pip install pipenv && \
+    pip install pipenv
+
+WORKDIR "/mlCodebase"
+
+RUN     export LC_ALL=C.UTF-8 && \
+    export LANG=C.UTF-8 && \
     pipenv install --dev
 
 EXPOSE 8000
