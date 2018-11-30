@@ -22,7 +22,10 @@ jobs:
       - run:
           name: run prediction tests
           command: |
-            cd development/ml && PYTHONPATH=. pipenv run pytest -s tests/*
+            cd development/ml && \
+            export LC_ALL=C.UTF-8 && \
+            export LANG=C.UTF-8 && \
+            PYTHONPATH=. pipenv run pytest -s tests/*
 
       - run:
           name: run evaluation tests
