@@ -19,6 +19,7 @@ RUN	apt-get update && \
     apt-get install -y parallel && \
     python3.6 -m pip install pip --upgrade && \
     python3.6 -m pip install wheel && \
-    pip install -r mlCodebase/requirements.txt
+    pip install pipenv && \
+    pipenv install --dev
 
 EXPOSE 8000

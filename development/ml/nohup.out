@@ -134,3 +134,12 @@
 [I 14:56:19.993 NotebookApp] Terminal 2 closed
 [I 14:57:24.705 NotebookApp] Saving file at /tasks/train.sh
 [I 14:57:33.293 NotebookApp] New terminal with automatic name: 1
+[I 11:07:38.600 NotebookApp] Saving file at /tasks/train.sh
+[I 11:07:42.576 NotebookApp] EOF on FD 13; stopping reading
+[I 11:07:42.677 NotebookApp] Terminal 1 closed
+[I 11:07:48.097 NotebookApp] New terminal with automatic name: 1
+[I 11:08:07.678 NotebookApp] Saving file at /tasks/train.sh
+[I 11:09:18.660 NotebookApp] Saving file at /tasks/train.sh
+[I 11:09:40.887 NotebookApp] Saving file at /tasks/train.sh
+[I 11:12:03.851 NotebookApp] Saving file at /tasks/train.sh
+[I 11:12:56.931 NotebookApp] Saving file at /tasks/prepare_sample_experiments.sh
