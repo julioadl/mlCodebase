@@ -17,6 +17,8 @@ jobs:
       - run:
           name: install dependencies
           command: |
+            export LC_ALL=C.UTF-8 && \
+            export LANG=C.UTF-8 && \
             pipenv install --dev
 
       - save_cache:
@@ -28,8 +30,6 @@ jobs:
           name: run prediction tests
           command: |
             cd development/ml && \
-            export LC_ALL=C.UTF-8 && \
-            export LANG=C.UTF-8 && \
             PYTHONPATH=. pipenv run pytest -s test/*
 
       - run:
