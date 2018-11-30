@@ -5,7 +5,7 @@ jobs:
       only:
         - examples
     docker:
-      - image: circleci/python:3.6.5
+      - image: julioadl/mlCodebase:examples
 
     steps:
       - checkout
@@ -13,13 +13,6 @@ jobs:
       - restore_cache:
           keys:
           - cache-{{ checksum "Pipfile.lock" }}
-
-      - run:
-          name: install dependencies
-          command: |
-            pip install --user pipenv --force-reinstall
-            sed -i 's/tensorflow-gpu/tensorflow/' Pipfile
-            pipenv install --dev
 
       - save_cache:
           key: cache-{{ checksum "Pipfile.lock" }}
