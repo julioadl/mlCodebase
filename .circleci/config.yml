@@ -5,7 +5,7 @@ jobs:
       only:
         - examples
     docker:
-      - image: julioadl/mlCodebase:examples
+      - image: julioadl/ml-codebase:examples
 
     steps:
       - checkout
