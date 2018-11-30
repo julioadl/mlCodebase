@@ -14,6 +14,11 @@ jobs:
           keys:
           - cache-{{ checksum "Pipfile.lock" }}
 
+      - run:
+          name: install dependencies
+          command: |
+            pipenv install --dev
+
       - save_cache:
           key: cache-{{ checksum "Pipfile.lock" }}
           paths:
@@ -25,7 +30,7 @@ jobs:
             cd development/ml && \
             export LC_ALL=C.UTF-8 && \
             export LANG=C.UTF-8 && \
-            PYTHONPATH=. pipenv run pytest -s tests/*
+            PYTHONPATH=. pipenv run pytest -s test/*
 
       - run:
           name: run evaluation tests
