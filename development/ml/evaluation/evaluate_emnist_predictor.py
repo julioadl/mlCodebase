@@ -17,4 +17,4 @@ class TestEvaluateCharacterPredictor(unittest.TestCase):
         time_taken = time() - t
         print(f'acc: {metric}, time_taken: {time_taken}')
         self.assertGreater(metric, 0.7)
-        self.assertLess(time_taken, 20)
+        self.assertLess(time_taken, 60)
