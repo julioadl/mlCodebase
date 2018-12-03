@@ -19,6 +19,7 @@ jobs:
           command: |
             export LC_ALL=C.UTF-8 && \
             export LANG=C.UTF-8 && \
+	    sed -i 's/tensorflow-gpu/tensorflow/' Pipfile && \
             pipenv install --dev
 
       - save_cache:
@@ -33,7 +34,7 @@ jobs:
             export LC_ALL=C.UTF-8 && \
             export LANG=C.UTF-8 && \
             PYTHONPATH=. pipenv run pytest -s test/*
-
+	    
       - run:
           name: run evaluation tests
           command: |
