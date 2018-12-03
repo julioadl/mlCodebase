@@ -23,8 +23,9 @@ RUN	apt-get update && \
 
 WORKDIR "/mlCodebase"
 
-RUN     export LC_ALL=C.UTF-8 && \
-    export LANG=C.UTF-8 && \
-    pipenv install --dev
+ENV LC_ALL C.UTF-8
+ENV LANG C.UTF-8
+
+RUN pipenv install --dev
 
 EXPOSE 8000
