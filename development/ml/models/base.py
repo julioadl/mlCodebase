@@ -125,6 +125,7 @@ class ModelTf:
 
     def evaluate(self, x, y):
         sequence = DatasetSequence(x, y, batch_size=16)  # Use a small batch size to use less memory
+        self.algorithm.compile(loss=self.loss(), optimizer=self.optimizer(), metrics=self.metrics())
         preds = self.algorithm.predict_generator(sequence)
         return np.mean(np.argmax(preds, -1) == np.argmax(y, -1))
 

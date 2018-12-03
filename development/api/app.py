@@ -15,13 +15,11 @@ import numpy as np
 import sys
 #Insert path for development or include it in the Dockerfile
 sys.path.insert(0, '')
-from predict import predictor
+from emnist_predictor import EmnistPredictor
 
-'''
-For Keras implementation see: https://github.com/gradescope/fsdl-text-recognizer-project/blob/master/lab6_sln/api/app.py
-'''
 
 app = Flask(__name__)
+predictor = EmnistPredictor()
 
 @app.route('/')
 def index():
@@ -48,4 +46,4 @@ def _load_data():
         ValueError('Unsupported HTTP method')
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8000, debug=False)
+    app.run(host='0.0.0.0', port=5000, debug=False)

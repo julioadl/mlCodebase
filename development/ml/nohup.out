@@ -143,3 +143,62 @@
 [I 11:09:40.887 NotebookApp] Saving file at /tasks/train.sh
 [I 11:12:03.851 NotebookApp] Saving file at /tasks/train.sh
 [I 11:12:56.931 NotebookApp] Saving file at /tasks/prepare_sample_experiments.sh
+[I 16:59:13.386 NotebookApp] Writing notebook server cookie secret to /root/.local/share/jupyter/runtime/notebook_cookie_secret
+[I 16:59:13.521 NotebookApp] Serving notebooks from local directory: /mlCodebase/development/ml
+[I 16:59:13.521 NotebookApp] The Jupyter Notebook is running at:
+[I 16:59:13.521 NotebookApp] http://(57ee604b2a82 or 127.0.0.1):8000/
+[I 16:59:13.521 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[W 16:59:13.521 NotebookApp] No web browser found: could not locate runnable browser.
+[I 16:59:38.864 NotebookApp] 302 GET / (146.169.216.48) 0.81ms
+[W 16:59:38.874 NotebookApp] Clearing invalid/expired login cookie username-dev-pollstr-io-8000
+[W 16:59:38.875 NotebookApp] Clearing invalid/expired login cookie username-dev-pollstr-io-8000
+[I 16:59:38.876 NotebookApp] 302 GET /tree? (146.169.216.48) 2.43ms
+[I 16:59:39.308 NotebookApp] 302 GET / (146.169.216.48) 0.49ms
+[I 16:59:39.319 NotebookApp] 302 GET /tree? (146.169.216.48) 0.68ms
+[I 16:59:47.153 NotebookApp] 302 POST /login?next=%2Ftree%3F (146.169.216.48) 1.33ms
+[I 17:00:12.976 NotebookApp] New terminal with automatic name: 1
+[I 11:04:37.484 NotebookApp] 302 GET / (129.31.251.134) 0.60ms
+[I 13:33:27.126 NotebookApp] 302 GET / (129.31.251.134) 0.70ms
+[I 13:52:23.545 NotebookApp] 302 GET / (129.31.250.72) 0.61ms
+[I 11:06:43.214 NotebookApp] 302 GET / (146.169.163.74) 0.59ms
+[W 11:06:43.227 NotebookApp] Clearing invalid/expired login cookie username-dev-pollstr-io-8000
+[W 11:06:43.228 NotebookApp] Clearing invalid/expired login cookie username-dev-pollstr-io-8000
+[I 11:06:43.228 NotebookApp] 302 GET /tree? (146.169.163.74) 1.53ms
+[I 11:07:34.312 NotebookApp] 302 GET / (146.169.221.106) 0.59ms
+[I 12:15:07.068 NotebookApp] 302 GET / (146.169.163.74) 0.60ms
+[I 12:15:07.077 NotebookApp] 302 GET /tree? (146.169.163.74) 0.83ms
+[I 12:15:11.908 NotebookApp] 302 POST /login?next=%2Ftree%3F (146.169.163.74) 1.35ms
+[I 12:25:56.579 NotebookApp] New terminal with automatic name: 2
+[I 12:27:29.946 NotebookApp] Creating new directory in /test
+[I 12:29:01.042 NotebookApp] Uploading file to /test/support/e.png
+[I 12:29:02.594 NotebookApp] Uploading file to /test/support/8.png
+[I 12:29:03.328 NotebookApp] Uploading file to /test/support/U.png
+[I 12:31:03.833 NotebookApp] Saving file at /test/test_emnist.py
+[I 12:31:19.856 NotebookApp] Saving file at /test/test_emnist.py
+[I 12:34:29.571 NotebookApp] Saving file at /test/test_emnist.py
+[I 12:35:39.278 NotebookApp] Saving file at /test/test_emnist.py
+[I 13:59:49.186 NotebookApp] Saving file at /test/test_emnist.py
+[I 14:00:44.402 NotebookApp] Saving file at /test/test_emnist.py
+[I 14:01:23.744 NotebookApp] Creating new directory in /test/support
+[I 14:02:15.376 NotebookApp] Saving file at /test/test_emnist.py
+[I 14:06:41.201 NotebookApp] Saving file at /test/test_emnist.py
+[I 14:07:19.386 NotebookApp] Saving file at /evaluation/evaluate_emnist_predictor.py
+[I 14:10:30.490 NotebookApp] Saving file at /evaluation/evaluate_emnist_predictor.py
+[I 14:15:27.574 NotebookApp] Saving file at /models/base.py
+[I 14:16:06.165 NotebookApp] Saving file at /models/base.py
+[I 14:19:31.598 NotebookApp] Saving file at /models/base.py
+[I 14:20:54.267 NotebookApp] Saving file at /evaluation/evaluate_emnist_predictor.py
+[I 14:31:36.426 NotebookApp] 302 GET / (146.169.163.74) 0.59ms
+[I 14:36:06.020 NotebookApp] 302 GET / (146.169.163.74) 0.62ms
+[I 14:46:26.850 NotebookApp] Saving file at /emnist_predictor.py
+[I 14:51:22.210 NotebookApp] Saving file at /emnist_predictor.py
+[I 14:56:12.496 NotebookApp] Saving file at /models/emnist_model.py
+[I 14:56:22.626 NotebookApp] Saving file at /models/base.py
+[I 14:57:06.598 NotebookApp] Saving file at /models/base.py
+[I 14:57:24.843 NotebookApp] Saving file at /models/emnist_model.py
+[I 15:05:27.905 NotebookApp] Saving file at /models/base.py
+[I 15:05:51.491 NotebookApp] Saving file at /models/emnist_model.py
+[I 15:06:47.253 NotebookApp] Saving file at /models/emnist_model.py
+[I 15:06:49.694 NotebookApp] Saving file at /models/base.py
+[I 15:45:47.649 NotebookApp] Saving file at /tasks/train.sh
+[I 15:46:46.016 NotebookApp] Saving file at /tasks/train.sh
